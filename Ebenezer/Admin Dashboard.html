@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js">
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+body{
+  font-family:"Montserrat", sans-serif;
+  background: #eee;
+
+}
+
+/* nav bar */
+.sidebar{
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)), url(images/img1.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow:5px 7px 25px #999;
+}
+.bottom-border{
+  border-bottom:1px groove #eee;
+}
+.sidebar-link{
+  transition:all .4s;
+}
+.sidebar-link:hover{
+  background-color: #444;
+  border-radius:5px;
+}
+.current{
+  background-color: #f44336;
+  border-radius: 7px;
+  box-shadow: 2px 5px 10px #111;
+  transition:all .3s;
+}
+.current:hover{
+  background-color: #f66436;
+  border-radius: 7px;
+  box-shadow: 2px 5px 20px #111;
+  transform:translateY(-1px);
+}
+.search-input{
+  background: transparent;
+  border:none;
+  border-radius: 0;
+  border-bottom:2px solid #999;
+  transition:all .4s;
+}
+
+.search-input:focus{
+  background: transparent;
+  box-shadow: none;
+  border-bottom:2px solid #dc3545;
+}
+.search-button{
+  border-radius: 25%;
+  padding:10px 16px;
+}
+.search-button:hover{
+  background: #eee;
+  transform:translateY(-1px);
+}
+.icon-parent{
+  position: relative;
+}
+.icon-bullet::after{
+  content:'';
+  position: absolute;
+  top:7px;
+  left:15px;
+  height: 12px;
+  width: 12px;
+  background-color: #f44336;
+  border-radius:50%;
+}
+@media(max-width:768px){
+  .sidebaar{
+      position: static;
+      height: auto;
+  }
+  .top-navbar{
+      position: static;
+  }
+}
+/* end nav bar */
+
+/* cards */
+.card-common{
+  box-shadow: 1px 2px 5px #999;
+  transition:all .4s;
+}
+.card-common:hover{
+  box-shadow:2px 3px 15px #999;
+  transform:translateY(-1px);
+}
+/* end cards */
+
+/* task list */
+.task-border{
+  border-left:3px solid #f66436;
+}
+</style>
+<body>
+  <nav class="navbar navbar-expand-md navbar-light">
+    <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-toggle="collapse" data-target="#myNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+            <a href="#"
+              class="navbar-brand text-white d-block mx-auto text-center py-3 mb-4 bottom-border">GWC</a>
+            <div class="bottom-border pb-3">
+              <img src="https://i.dailymail.co.uk/i/pix/2015/09/12/01/057EF8C000000514-0-image-a-68_1442016962830.jpg" width="50" class="rounded-circle mr-3">
+              <a href="#" class="text-white">Employees Attendance</a>
+            </div>
+            <ul class="navbar-nav flex-column mt-4">
+              <li class="nav-item"><a href="Admin Dashboard.html" class="nav-link text-white p-3 mb-2 current"><i
+                    class="fas fa-home text-light fa-lg mr-3"></i>Dashboard</a></li>
+              <li class="nav-item"><a href="My Profile.html" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                    class="fas fa-user text-light fa-lg mr-3"></i>Profile</a></li>
+              <li class="nav-item"><a href="Department.html" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                class='fas fa-school' style='font-size:24px'></i>Department</a></li>
+              <li class="nav-item"><a href="Employee.html" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                class='fas fa-users' style='font-size:24px'></i>Employees</a></li>
+              <li class="nav-item"><a href="Attendance Form.html" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                class="fas fa-chart-line text-light fa-lg mr-3"></i>Attendance</a></li>
+              <li class="nav-item"><a href="Print Report.html" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                class='fas fa-cloud-upload-alt'></i>Report</a></li>
+              <li class="nav-item"><a href="signup.html" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                class="fa">&#xf011;</i>Log out</i>
+              <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                    class="fas fa-wrench text-light fa-lg mr-3"></i>Settings</a></li>
+              <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i
+                    class="fas fa-file-alt text-light fa-lg mr-3"></i>Documentation</a></li>
+              
+            </ul>
+          </div>
+          <div class="col-xl-10 col-lg-9 col-md-8 ml-auto bg-dark fixed-top py-2 top-navbar">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <h4 class="text-light text-uppercase mb-0">EMPLOYEES ATTENDANCE SYSTEM</h4>
+              </div>
+              <div class="col-md-5">
+                <form>
+                  <div class="input-group">
+                    <input type="text" class="form-control search-input" placeholder="Search...">
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-3">
+                <ul class="navbar-nav">
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i
+                        class="fas fa-comments text-muted fa-lg"></i></a></li>
+                  <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i
+                        class="fas fa-bell text-muted fa-lg"></i></a></li>
+                  <li class="nav-item ml-md-auto"><a href="#" class="nav-link" data-toggle="modal"
+                      data-target="#sign-out"><i class="fas fa-sign-out-alt text-danger fa-lg"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="modal fade" id="sign-out">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Want to leave?</h4>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+          Press logout to leave
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Stay Here</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 col-md-8 col-lg-9 ml-auto">
+          <div class="row pt-md-5 mt-md-3 mb-5">
+            <div class="col-xl-3 col-sm-6 p2">
+              <div class="card card-common">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <i class="fa fa-shopping-cart fa-3x text-warning"></i>
+                    <div class="text-right text-secondary">
+                      <h5>Shift</h5>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-secondary">
+                  <i class="fa fa-sync mr-3"></i>
+                  <span>Updated Now</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 p2">
+              <div class="card card-common">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <i class='fas fa-users' style='font-size:24px'></i>
+                    <div class="text-right text-secondary">
+                      <h5>Employees</h5>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-secondary">
+                  <i class="fa fa-sync mr-3"></i>
+                  <span>Updated Now</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 p2">
+              <div class="card card-common">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <i class='fas fa-school' style='font-size:24px'></i>
+                    <div class="text-right text-secondary">
+                      <h5>Departments</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-secondary">
+                  <i class="fa fa-sync mr-3"></i>
+                  <span>Updated Now</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 p2">
+              <div class="card card-common">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <i class="fa fa-users fa-3x text-info"></i>
+                    <div class="text-right text-secondary">
+                      <h5>Users</h5>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-secondary">
+                  <i class="fa fa-sync mr-3"></i>
+                  <span>Updated Now</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+          
+
+  <!-- end of cards -->
+
+
+  <!-- tables -->
+  <section>
+    <div class="container-fluid">
+      <div class="row mb-5">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row align-item-center">
+            <div class="col-xl-6 col-12 mb-4 mb-xl-0">
+              <h3 class="text-muted text-center mb-3">Staff Salary</h3>
+              <table class="table bg-light text-center table-striped">
+                <thead>
+                  <tr class="text-muted">
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Date</th>
+                    <th>Contact</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>John</td>
+                    <td>&2100</td>
+                    <td>25/08/2020</td>
+                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  </tr>
+
+                  <tr>
+                    <th>2</th>
+                    <td>Tim</td>
+                    <td>&2100</td>
+                    <td>25/08/2020</td>
+                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Rose</td>
+                    <td>&2100</td>
+                    <td>25/08/2020</td>
+                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  </tr>
+                  <tr>
+                    <th>4</th>
+                    <td>Oscar</td>
+                    <td>&2100</td>
+                    <td>25/08/2020</td>
+                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  </tr>
+                  <tr>
+                    <th>5</th>
+                    <td>Mary</td>
+                    <td>&2100</td>
+                    <td>25/08/2020</td>
+                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- pagination -->
+              <nav>
+                <ul class="pagination justify-content-center">
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      <span>«</span>
+                    </a>
+                  </li>
+                  <li class="page-item active">
+                    <a href="#" class="page-link py-2 px-3">
+                      1
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      2
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      3
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      <span>»</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <!-- end pagination -->
+            </div>
+            <!-- second table -->
+            <div class=" col-xl-6 col-12">
+              <h3 class="text-muted text-center mb-3">Evening shifts</h3>
+              <table class="table text-center table-dark table-hover">
+                <thead>
+                  <tr class="text-muted">
+                    <th>#</th>
+                    <th>Name</th>
+                    
+
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1</th>
+                    <td>Lili</td>
+                    
+                    
+                    <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                  </tr>
+                  <tr>
+                    <th>2</th>
+                    <td>Rob</td>
+                   
+                    
+                    <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                  </tr>
+                  <tr>
+                    <th>3</th>
+                    <td>Jack</td>
+                   
+                    
+                    <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                  </tr>
+                  <tr>
+                    <th>4</th>
+                    <td>Lisa</td>
+                    
+                    
+                    <td><span class="badge badge-danger w-75 py-2">pending</span></td>
+                  </tr>
+                  <tr>
+                    <th>5</th>
+                    <td>Peter</td>
+                    
+                    
+                    <td><span class="badge badge-danger w-75 py-2">pending</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- pagination -->
+              <nav>
+                <ul class="pagination justify-content-center">
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      <span>Previous;</span>
+                    </a>
+                  </li>
+                  <li class="page-item active">
+                    <a href="#" class="page-link py-2 px-3">
+                      1
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      2
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      3
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link py-2 px-3">
+                      <span>Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <!-- end pagination -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end tables -->
+
+  <!-- progress/ task list -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row mb-4 align-item-center">
+            <div class="col-xl-6 col-12 mb-4 mb-xl-0">
+              <div class="bg-dark text-white p-4 rounded">
+                <h4 class="mb-5">Statistics Board</h4>
+                <h6 class="mb-3">Active employees</h6>
+                <div class="progress mb-4" style="height: 20px;">
+                  <div class="progress-bar progress-bar-striped font-weight-bold" style="width:91%">91%</div>
+                </div>
+                <h6 class="mb-3">On time to duty</h6>
+                <div class="progress mb-4" style="height: 20px;">
+                  <div class="progress-bar progress-bar-striped font-weight-bold bg-success" style="width:85%">85%</div>
+                </div>
+                <h6 class="mb-3">Lateness</h6>
+                <div class="progress mb-4" style="height: 20px;">
+                  <div class="progress-bar progress-bar-striped font-weight-bold  bg-danger" style="width:61%">61%</div>
+                </div>
+                <h6 class="mb-3">In Active employees</h6>
+                <div class="progress mb-4" style="height: 20px;">
+                  <div class="progress-bar progress-bar-striped font-weight-bold bg-info" style="width:10%">10%</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-12">
+              <h4 class="text-muted p-3 mb-3">Tasks:</h4>
+              <div class="container-fluid bg-white">
+                <div class="row py-3 mb-4 task-border align-items-center">
+                  <div class="col-1">
+                    <input type="checkbox" checked>
+                  </div>
+                  <div class="col-sm-9 col-8">
+                    Conduct yourself professionally at all times. This includes dressing appropriately, arriving on time, and maintaining a positive attitude.
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i
+                        class="fa fa-edit fa-lg text-success mr-2"></i></a>
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>Delete</h6>" data-html="true" data-placement="top"><i
+                        class="fa fa-trash-alt fa-lg text-danger mr-2"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container-fluid bg-white">
+                <div class="row py-3 mb-4">
+                  <div class="col-1">
+                    <input type="checkbox" checked>
+                  </div>
+                  <div class="col-sm-9 col-8">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, repellat.
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i
+                        class="fa fa-edit fa-lg text-success mr-2"></i></a>
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>Delete</h6>" data-html="true" data-placement="top"><i
+                        class="fa fa-trash-alt fa-lg text-danger mr-2"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container-fluid bg-white">
+                <div class="row py-3 mb-4">
+                  <div class="col-1">
+                    <input type="checkbox" checked>
+                  </div>
+                  <div class="col-sm-9 col-8">
+                    Strive to meet or exceed performance standards set by your employer. Consistently deliver high-quality work and contribute to the organization’s success.
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i
+                        class="fa fa-edit fa-lg text-success mr-2"></i></a>
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>Delete</h6>" data-html="true" data-placement="top"><i
+                        class="fa fa-trash-alt fa-lg text-danger mr-2"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container-fluid bg-white">
+                <div class="row py-3 mb-4">
+                  <div class="col-1">
+                    <input type="checkbox" checked>
+                  </div>
+                  <div class="col-sm-9 col-8">
+                    Foster a collaborative and respectful workplace. Treat colleagues, supervisors, and clients with kindness and professionalism.
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i
+                        class="fa fa-edit fa-lg text-success mr-2"></i></a>
+                  </div>
+                  <div class="col-1">
+                    <a href="#" data-toggle="tooltip" title="<h6>Delete</h6>" data-html="true" data-placement="top"><i
+                        class="fa fa-trash-alt fa-lg text-danger mr-2"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end progress/ task list -->
+
+  <!-- activities/ quick post -->
+  <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row align-item-center mb-5">
+            <div class="col-xl-7">
+              <h4 class="text-muted mb-4">Recent customer activities</h4>
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse"
+                      data-target="#collapseOne">
+                      <img src="https://cdn.pixabay.com/photo/2015/12/09/04/27/a-single-person-1084191_960_720.jpg" alt="" width="50" class="mr-3" rounded>
+                      John post a new comment
+                    </button>
+                  </div>
+                  <div class="collapse show" id="collapseOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Work is good
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse"
+                      data-target="#collapseTwo" data-parent="#accordion">
+                      <img src="https://www.ewanbramley.com/wp-content/uploads/2018/07/Smiling_pic.jpg" alt="" width="50" class="mr-3" rounded>
+                      Jonny post a new comment
+                    </button>
+                  </div>
+                  <div class="collapse" id="collapseTwo">
+                    <div class="card-body">
+                     Having a great day at work
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse"
+                      data-target="#collapseThree" data-parent="#accordion">
+                      <img src="images/cust3.jpeg" alt="" width="50" class="mr-3" rounded>
+                      Rose post a new comment
+                    </button>
+                  </div>
+                  <div class="collapse" id="collapseThree">
+                    <div class="card-body">
+                     For God and Mankind
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse"
+                      data-target="#collapseFour" data-parent="#accordion">
+                      <img src="images/cust4.jpeg" alt="" width="50" class="mr-3" rounded>
+                      Mary post a new comment
+                    </button>
+                  </div>
+                  <div class="collapse" id="collapseFour">
+                    <div class="card-body">
+                      Indeed we are achieving our dream
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse"
+                      data-target="#collapseFive" data-parent="#accordion">
+                      <img src="https://skinperfectmedical.com/wp-content/uploads/sites/57/2018/11/botox-men-2-768x720.jpg" alt="" width="50" class="mr-3" rounded>
+                      Enna post a new comment
+                    </button>
+                  </div>
+                  <div class="collapse" id="collapseFive">
+                    <div class="card-body">
+                      God is the greatest of all time
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="card">
+                  <div class="card-header">
+                    <button class="btn btn-block bg-secondary text-light text-left" data-toggle="collapse"
+                      data-target="#collapseSix" data-parent="#accordion">
+                      <img src="https://wp-media.patheos.com/blogs/sites/121/2012/02/CWest1.jpg" alt="" width="50" class="mr-3" rounded>
+                      Sara post a new comment
+                    </button>
+                  </div>
+                  <div class="collapse" id="collapseSix">
+                    <div class="card-body">
+                      In Him is life
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-xl-5 mt-5">
+              <div class="card" rounded>
+                <div class="card-body">
+                  <h5 class=" text-muted text-center mb-4">Quick Status Post</h5>
+                  <ul class="list-inline text-center py-3">
+                    <li class="list-inline-item mr-4">
+                      <a href="#"><i class="fa fa-pencil-alt text-success"></i>
+                      <span class="h6 text-muted">Status</span></a>
+                    </li>
+                    <li class="list-inline-item mr-4">
+                      <a href="#"><i class="fa fa-camera text-info"></i>
+                      <span class="h6 text-muted">Photo</span></a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a href="#"><i class="fa fa-map-marker-alt text-primary"></i>
+                      <span class="h6 text-muted">Check In</span></a>
+                    </li>
+                  </ul>
+                  <form >
+                    <div class="form-group">
+                      <input type="text" class="form-control py-2 mb-3" placeholder="what is your status...">
+                      <button type="button" class="btn btn-block text-uppercase font-weight-bold text-light bg-info py-2 mb-5">Submit Post</button>
+                    </div>
+                  </form>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="card bg-light">
+                        <i class="fa fa-calendar-alt fa-8x text-warning d-block m-auto py-3"></i>
+                        <div class="card-body">
+                          <p class="card-text text-center font-weight-bold text-uppercase">Mon, January 8</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="card bg-light">
+                        <i class="fa fa-clock fa-8x text-danger d-block m-auto py-3"></i>
+                        <div class="card-body">
+                          <p class="card-text text-center font-weight-bold text-uppercase">6:30AM</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row border-top pt-3">
+            <div class="col-lg-6" text-center>
+              <ul class="list-inline">
+                <li class="list-inline-item mr-2">
+                  <a href="#" class="text-dark"></a>
+                </li>
+                <li class="list-inline-item mr-2">
+                  <a href="#" class="text-dark"></a>
+                </li>
+                <li class="list-inline-item mr-2">
+                  <a href="#" class="text-dark"></a>
+                </li>
+                <li class="list-inline-item mr-2">
+                  <a href="#" class="text-dark"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6" text-center>
+              <p>© 2020 copyright. made with <i class="fa fa-heart text-danger"></i>  <span class="text-success">Lyrical</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- end footer -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+  </script>
+</body>
+</html>
